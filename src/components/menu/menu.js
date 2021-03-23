@@ -15,13 +15,13 @@ export default function Menu() {
       <section className="menu">
         <button
           className="logo flex_center"
-          onClick={() => history.push("/home")}
+          onClick={() => history.push("/")}
         >
           <h1>J</h1>
           <p>Jordão</p>
         </button>
         <nav className="menu_list flex_center">
-          <button className="icone" onClick={() => history.push("/home")}>
+          <button className="icone" onClick={() => history.push("/")}>
             <img src={casa} alt="" />
             <p>HOME</p>
           </button>
