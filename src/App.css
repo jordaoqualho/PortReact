@@ -1,38 +1,524 @@
-.App {
-  text-align: center;
+/* ---------- Estilos Globais ---------- */
+:root {
+  --green: #67f891;
+  --darkGray: #363636;
+  --gray: #3f3e3e;
+  --tags: #5e5d5d;
+  --lightGray: #8d8d8d;
+  --mainFont: "Russo One", sans-serif;
+  --litleFont: "Roboto", sans-serif;
+  --cursiveFont: "La Belle Aurore", cursive;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex_center {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex_center_column {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+}
+#root {
+  display: flex;
+  width: 100%;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--gray);
+  font-size: 1.6rem;
+  -youbkit-touch-callout: none;
+  -youbkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.transition-2 {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  bottom: 0;
+  z-index: 101;
+  background-color: var(--darkGray);
+  transition: 0.5s ease-out;
+}
+.transition-2.is-active {
+  left: 0px;
+}
+.transition-3 {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  background-color: var(--darkGray);
+  transition: 0.5s ease-out;
+}
+.transition-3.is-active {
+  top: 0;
+}
+
+/* ---------- Nav-bar Menu ---------- */
+
+/* Logo */
+.logo {
+  width: 100%;
+  border: none;
+  background-color: var(--darkGray);
+  height: 80px;
+  cursor: pointer;
+  flex-direction: column;
+}
+.logo:hover {
+  background-color: var(--gray);
+}
+.logo h1 {
+  font-size: 35px;
+  font-family: var(--mainFont);
+  color: var(--green);
+}
+.logo p {
   color: white;
+  font-family: var(--mainFont);
+  font-size: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Menu list */
+.menu {
+  background-color: var(--darkGray);
+  width: 60px;
+  height: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.menu_list {
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+.menu_list button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.icone {
+  position: relative;
+}
+.icone img {
+  transition: all 0.5s ease-out;
+}
+.icone p {
+  font-family: var(--mainFont);
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 30%;
+  background-color: var(--darkGray);
+  display: block;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.ic2 p {
+  bottom: 40%;
+}
+.icone:hover p {
+  opacity: 1;
+}
+.icone:hover img {
+  opacity: 0.2;
+}
+.social_media {
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Social media */
+.social_media a {
+  width: 100%;
+  text-align: center;
+}
+.social_media i {
+  color: var(--lightGray);
+  margin-top: 15px;
+  transition: all 0.5s ease-out;
+  font-size: 1.6rem;
+}
+.social_media a:hover i {
+  transition: all 0.5s ease-out;
+  color: var(--green);
+}
+
+/* ---------- Banner   ---------- */
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100% - 60px);
+}
+.banner {
+  font-family: var(--mainFont);
+  cursor: default;
+  align-items: flex-start;
+  flex-direction: column;
+  color: white;
+  height: 100%;
+  padding-left: 100px;
+  width: 50%;
+  font-size: 30px;
+}
+.banner span {
+  color: var(--green);
+}
+.banner h1 {
+  position: relative;
+  font-size: 6.5rem;
+  margin: 10px 0;
+}
+.banner h1::before {
+  content: "<h1>";
+  font-family: var(--cursiveFont);
+  font-size: 1.8rem;
+  position: absolute;
+  left: -20px;
+  top: -25px;
+  color: var(--tags);
+  font-weight: normal;
+}
+.banner h1::after {
+  content: "<h1>";
+  font-family: var(--cursiveFont);
+  font-size: 1.8rem;
+  position: absolute;
+  color: var(--tags);
+  left: -20px;
+  bottom: -25px;
+  font-weight: normal;
+}
+.t_about h1::after {
+  margin: -5px 0 0 0;
+}
+.banner p {
+  font-family: var(--litleFont);
+  font-size: 2.2rem;
+  color: var(--lightGray);
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+#about_p {
+  margin-top: 40px;
+  width: 35%;
+  font-size: 1.8rem;
+  color: white !important;
+}
+.menu_list a:hover .menu_list a img {
+  background-color: #fff;
+}
+.tags {
+  font-family: var(--cursiveFont);
+  font-size: 1.8rem;
+  z-index: 3;
+  position: absolute;
+  color: var(--tags);
+}
+.top_tag {
+  top: 2rem;
+  bottom: auto;
+  left: 9rem;
+}
+.bottom_tag {
+  top: auto;
+  bottom: 2rem;
+  left: 9rem;
+}
+.big-jay {
+  width: 50%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  transform: rotate(15deg);
+}
+.big-jay span {
+  font-size: 90vh;
+  cursor: default;
+  color: var(--green);
+  font-family: var(--mainFont);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(2050px);
+}
+.big-jay span::after {
+  content: "J";
+  position: absolute;
+  opacity: 0.2;
+  transform: translateZ(-50px);
+  height: 100%;
+  z-index: -1;
+  color: transparent;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  left: 25px;
+  bottom: -25px;
+}
+
+/* ---------- About page  ---------- */
+.about-container {
+  position: relative;
+}
+.about-container h1 {
+  margin: 3rem 0;
+}
+.about-container p {
+  font-size: 1.6rem;
+  color: white;
+  position: relative;
+  width: 80%;
+  font-family: var(--litleFont);
+  margin: 1rem 0;
+  font-weight: normal;
+}
+.about-container :nth-child(2)::before {
+  content: "<p>";
+  font-family: var(--cursiveFont);
+  position: absolute;
+  margin-top: 5px;
+  font-size: 1.8rem;
+  color: var(--tags);
+  font-weight: normal;
+  margin-top: -3rem;
+  left: -2rem;
+}
+.about-container :nth-child(4)::after {
+  content: "</p>";
+  left: -2rem;
+  bottom: -7rem;
+  font-family: var(--cursiveFont);
+  position: absolute;
+  font-size: 1.8rem;
+  color: var(--tags);
+  font-weight: normal;
+}
+.about-container a {
+  color: var(--green);
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-family: var(--litleFont);
+}
+.about-container a:hover {
+  color: #4aaf67;
+}
+/* ---------- Page Contato  ---------- */
+.contato {
+  width: calc(100% - 60px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  background-color: #fff;
+  height: 100%;
+}
+.contato-banner {
+  width: 50%;
+  background-color: var(--gray);
+  z-index: 2;
+}
+.contato-banner h1 {
+  font-size: 6.5rem;
+  width: 80%;
+  font-family: var(--mainFont);
+  color: var(--green);
+  margin: 15px 0;
+  position: relative;
+}
+.contato-banner h1::before {
+  content: "<h1>";
+  font-family: var(--cursiveFont);
+  position: absolute;
+  font-size: 1.8rem;
+  bottom: 6rem;
+  color: var(--tags);
+  font-weight: normal;
+  left: -20px;
+}
+.contato-banner h1::after {
+  content: "</h1>";
+  left: -20px;
+  top: 6rem;
+  font-family: var(--cursiveFont);
+  position: absolute;
+  font-size: 1.8rem;
+  color: var(--tags);
+  font-weight: normal;
+}
+.contato-banner p {
+  font-size: 1.6rem;
+  color: white;
+  position: relative;
+  width: 80%;
+  font-family: var(--litleFont);
+  margin: 1.6rem 0;
+  font-weight: normal;
+}
+.contato-banner p::before {
+  content: "<p>";
+  font-family: var(--cursiveFont);
+  position: absolute;
+  margin-top: 5px;
+  font-size: 1.8rem;
+  color: var(--tags);
+  font-weight: normal;
+  margin-top: -3rem;
+  left: -2rem;
+}
+.contato-banner p::after {
+  content: "</p>";
+  left: -2rem;
+  bottom: -3rem;
+  font-family: var(--cursiveFont);
+  position: absolute;
+  font-size: 1.8rem;
+  color: var(--tags);
+  font-weight: normal;
+}
+
+/* Forms Style */
+.forms {
+  width: 80%;
+  position: relative;
+  margin: 60px 0;
+}
+.forms::before {
+  content: "</form>";
+  font-family: var(--cursiveFont);
+  position: absolute;
+  font-size: 1.8rem;
+  top: -30px;
+  left: -20px;
+  color: var(--tags);
+  font-weight: normal;
+}
+.forms::after {
+  content: "</form>";
+  left: -20px;
+  bottom: -50px;
+  font-family: var(--cursiveFont);
+  position: absolute;
+  font-size: 1.8rem;
+  color: var(--tags);
+  font-weight: normal;
+}
+.row {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+.row .forms-control {
+  width: 50%;
+  margin: 5px 0;
+}
+.forms-control {
+  background-color: var(--darkGray);
+  transition: 0.5s ease all;
+  border: none;
+  resize: none;
+  padding: 15px 20px;
+  color: var(--lightGray);
+  font-family: var(--litleFont);
+  font-size: 1.6rem;
+  margin: 5px;
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid transparent;
+}
+.forms-control:hover,
+.forms-control:focus {
+  border-bottom: 1px solid var(--green);
+}
+.forms-control::placeHolder {
+  color: var(--lightGray);
+  font-size: 1.6rem;
+}
+.stand-btn {
+  border: 1px solid var(--green);
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--green);
+  padding: 10px 30px;
+  align-self: flex-end;
+  margin-top: 20px;
+  font-size: 2rem;
+  font-family: var(--mainFont);
+  background-color: transparent;
+  position: relative;
+}
+.stand-btn::after {
+  content: "";
+  background-color: var(--green);
+  transition: 0.5s ease all;
+  position: absolute;
+  z-index: -1;
+  left: -5%;
+  top: -1px;
+  height: calc(100% + 2px);
+  transform: skewX(-10deg);
+  width: 0%;
+}
+.stand-btn:hover::after {
+  width: 140%;
+}
+.stand-btn:hover {
+  color: var(--gray);
+}
+
+/* Map Style */
+.map {
+  width: 50%;
+  position: relative;
+  background: url("./img/mapas.png") center center / cover no-repeat;
+}
+.anotation {
+  background-color: rgba(54, 54, 54, 0.9);
+  width: fit-content;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 35px;
+}
+.anotation p {
+  margin: 5px 0;
+  color: white;
+  font-family: var(--litleFont);
+}
+.anotation p:nth-child(3) {
+  margin-top: 20px;
+}
+.anotation span {
+  color: var(--green);
+}
+.marker {
+  height: 9%;
+  position: absolute;
+  left: 43%;
+  top: 35%;
 }
