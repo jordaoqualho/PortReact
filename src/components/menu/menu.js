@@ -22,7 +22,7 @@ export default function Menu() {
     }, 1000);
     console.log("gogo");
   };
-  const go = (string) => {
+  const went = (string) => {
     transitionGo();
     history.push(string);
     transitionBack();
@@ -32,24 +32,24 @@ export default function Menu() {
     <>
       <div className="transition transition-3"></div>
       <section className="menu">
-        <button className="logo flex_center" onClick={() => go("/")}>
+        <button className="logo flex_center" onClick={() => went("/")}>
           <h1>J</h1>
           <p>Jordão</p>
         </button>
         <nav className="menu_list flex_center">
-          <button className="icone" onClick={() => go("/")}>
+          <button className="icone" onClick={() => went("/")}>
             <img src={casa} alt="" />
             <p>HOME</p>
           </button>
-          <button className="icone" onClick={() => go("/about")}>
+          <button className="icone" onClick={() => went("/about")}>
             <img src={about} alt="" />
             <p>ABOUT</p>
           </button>
-          <button className="icone" onClick={() => go("/skills")}>
+          <button className="icone" onClick={() => went("/skills")}>
             <img src={skills} alt="" />
             <p>SKILLS</p>
           </button>
-          <button className="icone ic2" onClick={() => go("/work")}>
+          <button className="icone ic2" onClick={() => went("/work")}>
             <img src={work} alt="" />
             <p>PROJETOS</p>
           </button>
