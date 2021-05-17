@@ -10,30 +10,46 @@ import contato from "../../img/letter_gray.png";
 export default function Menu() {
   const history = useHistory();
 
+  const transitionGo = () => {
+    const transition_el = document.querySelector(".transition");
+    transition_el.classList.add("is-active");
+    console.log("gogo");
+  };
+  const transitionBack = () => {
+    const transition_el = document.querySelector(".transition");
+    setTimeout(() => {
+      transition_el.classList.remove("is-active");
+    }, 1000);
+    console.log("gogo");
+  };
+  const go = (string) => {
+    transitionGo();
+    history.push(string);
+    transitionBack();
+  };
+
   return (
     <>
+      <div className="transition transition-3"></div>
       <section className="menu">
-        <button
-          className="logo flex_center"
-          onClick={() => history.push("/")}
-        >
+        <button className="logo flex_center" onClick={() => go("/")}>
           <h1>J</h1>
           <p>Jordão</p>
         </button>
         <nav className="menu_list flex_center">
-          <button className="icone" onClick={() => history.push("/")}>
+          <button className="icone" onClick={() => go("/")}>
             <img src={casa} alt="" />
             <p>HOME</p>
           </button>
-          <button className="icone" onClick={() => history.push("/about")}>
+          <button className="icone" onClick={() => go("/about")}>
             <img src={about} alt="" />
             <p>ABOUT</p>
           </button>
-          <button className="icone" onClick={() => history.push("/skills")}>
+          <button className="icone" onClick={() => go("/skills")}>
             <img src={skills} alt="" />
             <p>SKILLS</p>
           </button>
-          <button className="icone ic2" onClick={() => history.push("/work")}>
+          <button className="icone ic2" onClick={() => go("/work")}>
             <img src={work} alt="" />
             <p>PROJETOS</p>
           </button>

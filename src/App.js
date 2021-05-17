@@ -18,7 +18,6 @@ function App() {
           <Route path="/about">
             <About></About>
           </Route>
-
           <Route path="/skills">
             <Skills></Skills>
           </Route>

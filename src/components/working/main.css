@@ -1,0 +1,10 @@
+.container {
+  display: grid;
+  place-items: center;
+  width: calc(100% - 60px);
+}
+.wk-title {
+  font-family: var(--mainFont);
+  color: var(--green);
+  font-size: 5rem;
+}
