@@ -6,7 +6,6 @@ import "../../App.css";
 export default function Work() {
   return (
     <>
-
       <Menu></Menu>
       <Working></Working>
     </>
