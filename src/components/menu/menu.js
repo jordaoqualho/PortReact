@@ -63,7 +63,7 @@ export default function Menu() {
         </nav>
         <div className="social_media flex_center">
           <a
-            href="https://api.whatsapp.com/send?l=pt_BR&phone=55044998763111"
+            href="https://api.whatsapp.com/send?l=pt_BR&phone=55044997000617"
             target=" "
           >
             <i className="fab fa-whatsapp"></i>
