@@ -7,7 +7,7 @@ export const Working = () => {
     <>
       <div className="container">
         <div>
-          <img src={dev} />
+          <img src={dev} alt="" />
           <h1 className="wk-title">Página em desenvolvimento</h1>
         </div>
       </div>

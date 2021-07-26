@@ -23,7 +23,7 @@ export default function Home() {
             Um Desenvolvedor<span>.</span>
           </h1>
           <p>Web / Mobile Front End Dev</p>
-          <a href="https://api.whatsapp.com/send?l=pt_BR&phone=55044998763111">
+          <a href="/work">
             <button className="stand-btn">Veja meu trabalho!</button>
           </a>
         </div>
@@ -36,5 +36,3 @@ export default function Home() {
     </>
   );
 }
-
-
